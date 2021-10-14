@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="productdetail")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler","product"})
 public class ProductDetail {
 	@Id @GeneratedValue
 	@Column(name="productdetailid")
@@ -22,7 +22,7 @@ public class ProductDetail {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="productid")
-//	@JsonIgnoreProperties("productdetail")
+	@JsonIgnoreProperties("productdetail")
 	private Product product;
 	
 	@Column(name="type")

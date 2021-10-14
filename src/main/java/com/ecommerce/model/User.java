@@ -40,7 +40,7 @@ public class User {
 	private boolean adminrights;
 	
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
 	@JsonIgnoreProperties("user")
     private List<Product> product;
 	
