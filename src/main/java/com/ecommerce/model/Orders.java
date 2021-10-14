@@ -25,7 +25,7 @@ public class Orders {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="userid")
-//	@JsonIgnoreProperties("orders")
+	@JsonIgnoreProperties("orders")
 	private User user;
 	
 	@Column(name="address")
@@ -33,7 +33,7 @@ public class Orders {
 	
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orders")
-//	@JsonIgnoreProperties("orders")
+	@JsonIgnoreProperties("orders")
     private List<OrderItem> orderitem;
 	
 	@Column(name="totalprice",columnDefinition = "DECIMAL(10,2) default 0")
