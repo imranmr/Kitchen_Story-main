@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -99,6 +100,19 @@ public class UserController {
 		}else {
 			throw new Exception("Login Error - Email/Password mismatched!");
 		}
+	}
+	
+	@PutMapping("resetpassword")
+	public User resetPassword(@RequestBody User user) throws Exception {
+		User tempuser = userrepo.findById(user.getUserid()).orElse(null);
+		if (tempuser != null) {
+			tempuser.setPassword(user.getPassword());
+			return userrepo.save(tempuser);
+		}else {
+			throw new Exception("Error resetting password");
+		}
+		
+		
 	}
 	
 	
