@@ -55,7 +55,7 @@ public class ProductController {
 	@Autowired
 	OrderItemRepository orderitemrepo;
 	
-	@PostMapping("products")
+	@GetMapping("products")
 	public List<Product> getAllProduct(){
 		return (List<Product>) productrepo.findAll();
 	}
