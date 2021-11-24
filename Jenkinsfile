@@ -37,7 +37,7 @@ pipeline {
             steps {
                 echo '----------------- This is a docker deploment phase ----------'
                 sh '''
-                 (if  [ $(docker ps -a | grep ecom-webservice | cut -d " " -f1) ]; then \
+                 (if  [ $(docker ps -a | grep kitchencontainer | cut -d " " -f1) ]; then \
                         echo $(docker rm -f kitchencontainer); \
                         echo "---------------- successfully removed ecom-webservice ----------------"
                      else \
